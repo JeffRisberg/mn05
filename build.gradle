@@ -20,7 +20,6 @@ dependencies {
   implementation("io.micronaut.reactor:micronaut-reactor")
   implementation("io.micronaut.reactor:micronaut-reactor-http-client")
   implementation("jakarta.annotation:jakarta.annotation-api")
-  implementation("io.micronaut:micronaut-inject")
   runtimeOnly("org.slf4j:slf4j-simple")
 }
 
