@@ -34,7 +34,7 @@ curl http://localhost:8080/hello
 curl http://localhost:8080/goodbye
 curl http://localhost:8080/user
 curl -X POST http://localhost:8080/user -H 'Content-Type: application/json' -d '
-{"firstName": "Bob" }
+{"email": "bob@gmail.com", "password": "12345" }
 '
 
 
