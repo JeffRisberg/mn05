@@ -5,11 +5,14 @@ import io.micronaut.context.annotation.Property;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
+import io.micronaut.security.annotation.Secured;
+import io.micronaut.security.rules.SecurityRule;
 import jakarta.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Controller("/")
+@Secured(SecurityRule.IS_ANONYMOUS)
 public class HelloWorldController {
 
   private static final Logger LOG = LoggerFactory.getLogger(HelloWorldController.class);
