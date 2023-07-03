@@ -30,12 +30,15 @@ Run in the IDE by running the Application.java file.
 
 ## Sample endpoints
 
-curl http://localhost:8080/hello
-curl http://localhost:8080/goodbye
-curl http://localhost:8080/user
-curl -X POST http://localhost:8080/user -H 'Content-Type: application/json' -d '
-{"email": "bob@gmail.com", "password": "12345" }
+curl -v POST "http://localhost:8080/login" -H 'Content-Type: application/json; charset=utf-8' -d '
+{"username": "alice", "password":"alice@1"}
 '
+
+curl -v http://localhost:8080/hello
+curl -v http://localhost:8080/goodbye
+
+curl -v "http://localhost:8080/user" --cookie 'SESSION=MWZkYjdjYTAtZTdkNi00NmI5LWEyZDMtZWNkM2EzMmIxODMz'
+
 
 
 

@@ -1,25 +1,25 @@
 micronaut:
   application:
     name: mn05
-  #security:
-    #authentication: session
+
+micronaut:
+  security:
+    enabled: true
+    authentication: session
+
+    session:
+      enabled: true
+
+    endpoints:
+      login:
+        enabled: true
+      logout:
+        enabled: true
+
 netty:
   default:
     allocator:
       max-order: 3
-
-security:
-  enabled: true
-  authentication: session
-
-  session:
-    enabled: true
-
-  endpoints:
-    login:
-      enabled: true
-    logout:
-      enabled: true
 
 
 identity-store:

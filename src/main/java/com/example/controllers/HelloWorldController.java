@@ -12,7 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Controller("/")
-@Secured(SecurityRule.IS_ANONYMOUS)
 public class HelloWorldController {
 
   private static final Logger LOG = LoggerFactory.getLogger(HelloWorldController.class);
@@ -30,26 +29,32 @@ public class HelloWorldController {
     this.goodbyeFromConfig = goodbyeFromConfig;
   }
 
+  @Secured(SecurityRule.IS_ANONYMOUS)
   @Get(uri = "/hello", produces = MediaType.TEXT_PLAIN)
   public String helloWorld() {
     LOG.info("helloWorld is running");
     return helloWorldService.helloFromService();
   }
 
+  @Secured(SecurityRule.IS_ANONYMOUS)
   @Get(uri = "/goodbye", produces = MediaType.TEXT_PLAIN)
   public String goodbyeWorld() {
     LOG.info("goodbyeWorld is running");
     return goodbyeFromConfig;
   }
 
+  @Secured(SecurityRule.IS_AUTHENTICATED)
   @Get(uri = "/user", produces = MediaType.APPLICATION_JSON)
   public User userGet() {
+    System.out.println("Getting user");
     User data = new User("jim@gmail.com", "123456");
     return data;
   }
 
+  @Secured(SecurityRule.IS_AUTHENTICATED)
   @Post(uri = "/user", consumes = MediaType.APPLICATION_JSON)
   public HttpResponse<User> userPost(@Body User user) {
+    System.out.println("Posting user");
     System.out.println(user);
     return HttpResponse.created(user);
   }
